@@ -1,6 +1,6 @@
 export module traits;
 
-namespace traits {
+export namespace traits {
 template <class T> struct remove_ref {
   typedef T type;
 };
