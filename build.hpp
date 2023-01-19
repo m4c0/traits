@@ -1,3 +1,4 @@
+#pragma once
 #include "ecow.hpp"
 
 auto traits() {
