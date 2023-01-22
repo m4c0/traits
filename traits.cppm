@@ -1,4 +1,5 @@
 export module traits;
+export import :size_t;
 
 export namespace traits {
 template <class T> struct remove_ref {

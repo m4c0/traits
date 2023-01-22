@@ -4,5 +4,7 @@
 auto traits() {
   using namespace ecow;
 
-  return unit::create<mod>("traits");
+  auto m = unit::create<mod>("traits");
+  m->add_part("size_t");
+  return m;
 }
