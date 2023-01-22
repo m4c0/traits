@@ -2,6 +2,23 @@ export module traits;
 export import :size_t;
 
 export namespace traits {
+template <class T> struct remove_ptr {
+  typedef T type;
+};
+template <class T> struct remove_ptr<T *> {
+  typedef T type;
+};
+template <class T> struct remove_ptr<T *const> {
+  typedef T type;
+};
+template <class T> struct remove_ptr<T *volatile> {
+  typedef T type;
+};
+template <class T> struct remove_ptr<T *const volatile> {
+  typedef T type;
+};
+template <class T> using remove_ptr_t = typename remove_ptr<T>::type;
+
 template <class T> struct remove_ref {
   typedef T type;
 };
