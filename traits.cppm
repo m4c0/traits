@@ -1,5 +1,6 @@
 export module traits;
 export import :size_t;
+export import :stdint;
 
 export namespace traits {
 template <class T> struct remove_ptr {
