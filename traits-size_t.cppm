@@ -2,7 +2,7 @@ module;
 #ifdef __wasi__
 #include <wasi/api.h>
 #else
-#include <stdint.h>
+#include <stddef.h>
 #endif
 
 export module traits:size_t;
