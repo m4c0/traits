@@ -1,9 +1,9 @@
 export module traits:invoke;
 import :concepts;
 
-namespace traits {
+export namespace traits {
 template <typename T> constexpr const auto always_false = false;
-template <typename T> static constexpr T &&declval() noexcept {
+template <typename T> inline constexpr T &&declval() noexcept {
   static_assert(always_false<T>);
 }
 
@@ -11,7 +11,7 @@ template <typename Fn, typename... Args> struct call_result {
   using type = decltype(declval<Fn>()(declval<Args>()...));
 };
 
-export template <typename Fn, typename... Args>
+template <typename Fn, typename... Args>
 using call_result_t = typename call_result<Fn, Args...>::type;
 } // namespace traits
 
@@ -27,4 +27,5 @@ template <typename Fn> static constexpr bool test(Fn &&fn) {
 static constexpr int fn(long) { return {}; }
 static_assert(test(fn));
 static_assert(test([](long) -> int { return {}; }));
+static_assert(test([](int i) { return [i](long) -> int { return i; }; }(0)));
 } // namespace
