@@ -1,4 +1,5 @@
 export module traits;
+export import :concepts;
 export import :size_t;
 export import :stdint;
 
