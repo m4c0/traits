@@ -1,12 +1,15 @@
 export module traits:concepts;
 
 namespace traits {
-template <typename A, typename B> struct is_same {
-  static constexpr const auto value = false;
-};
-template <typename A> struct is_same<A, A> {
+export struct true_t {
   static constexpr const auto value = true;
 };
+export struct false_t {
+  static constexpr const auto value = false;
+};
+
+template <typename A, typename B> struct is_same : false_t {};
+template <typename A> struct is_same<A, A> : true_t {};
 static_assert(is_same<void, void>::value);
 static_assert(!is_same<int, void>::value);
 
