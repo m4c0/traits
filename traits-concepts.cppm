@@ -20,4 +20,9 @@ export template <typename A, typename B>
 concept same_as = is_same<A, B>::value;
 export template <typename A, typename B>
 concept not_same_as = (!is_same<A, B>::value);
+
+export template <typename T, typename F>
+concept is_assignable_from = requires(F f, T t) { t = f; };
+export template <typename T, typename F>
+concept is_not_assignable_from = (!is_assignable_from<T, F>);
 } // namespace traits
