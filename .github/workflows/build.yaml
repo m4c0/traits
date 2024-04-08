@@ -10,14 +10,13 @@ jobs:
       matrix:
         os:
           - macos-latest
+          - ubuntu-latest
           - windows-latest
     runs-on: ${{ matrix.os }}
     steps:
       - name: 🧰 Setup
-        uses: m4c0/ecow/.github/actions/setup@main
+        uses: m4c0/leco/.github/actions/setup@main
       - name: 🧀 Prepare Deps
-        uses: m4c0/traits/.github/actions/deps@main
+        run: git clone --depth=1 https://github.com/m4c0/traits.git
       - name: 🔨 Build
-        uses: m4c0/ecow/.github/actions/compile@main
-        with:
-          project: traits
+        run: ./leco/leco.exe -C traits -v
