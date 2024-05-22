@@ -25,4 +25,7 @@ export template <typename T, typename F>
 concept is_assignable_from = requires(F f, T t) { t = f; };
 export template <typename T, typename F>
 concept is_not_assignable_from = (!is_assignable_from<T, F>);
+
+export template <typename T, typename... Args>
+concept is_callable = requires(T t, Args... a) { t(a...); };
 } // namespace traits
