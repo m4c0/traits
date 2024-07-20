@@ -1,7 +1,7 @@
 export module traits:decay;
 import :concepts;
 
-namespace traits {
+export namespace traits {
 template <typename T> struct decay {
   using type = T;
 };
