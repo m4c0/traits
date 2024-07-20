@@ -1,5 +1,6 @@
 export module traits;
 export import :concepts;
+export import :decay;
 export import :invoke;
 export import :size_t;
 export import :stdint;
