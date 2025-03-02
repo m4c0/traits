@@ -42,4 +42,10 @@ template <class T> constexpr T &&fwd(remove_ref_t<T> &&t) noexcept { return t; }
 template <class T> constexpr remove_ref_t<T> &&move(T &&t) noexcept {
   return static_cast<remove_ref_t<T> &&>(t);
 }
+
+  template<typename T>
+  constexpr unsigned offset_of(auto (T::*x)) {
+    void * ptr = &(reinterpret_cast<T *>(0)->*x);
+    return reinterpret_cast<traits::size_t>(ptr);
+  }
 } // namespace traits
