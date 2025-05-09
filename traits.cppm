@@ -44,7 +44,7 @@ template <class T> constexpr remove_ref_t<T> &&move(T &&t) noexcept {
 }
 
   template<typename T>
-  constexpr unsigned offset_of(auto (T::*x)) {
+  unsigned offset_of(auto (T::*x)) {
     void * ptr = &(reinterpret_cast<T *>(0)->*x);
     return reinterpret_cast<traits::size_t>(ptr);
   }
